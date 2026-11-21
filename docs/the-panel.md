@@ -18,7 +18,7 @@
 | **Meters** | Left: the level into the model, after INPUT. Right: the level out of the plug-in. The bottom of each meter is -60 dB. The part above 0 dBFS is red. |
 | **Preset box** | Shows the name of the preset. The arrows switch to the previous or next built-in preset. |
 | **OVERSAMPLING** | Clicking cycles through 2x, 4x and 8x. |
-| **SIZE** | Opens a menu with the sizes of the panel (75%, 100%, 125%, 150% and 200%). |
+| **SIZE** | Opens a menu with the sizes of the panel (75%, 100%, 125%, 150% and 200%). Sizes that do not fit on your screen are greyed out. |
 | **LOAD** | Loads a preset from a file. |
 | **SAVE** | Saves the settings as a preset file. |
 | **INFO** | Shows a short description of the plug-in and its controls. A click anywhere closes it. |

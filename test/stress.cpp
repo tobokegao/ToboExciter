@@ -213,9 +213,10 @@ static void ordinary (const juce::File& dir)
     }
     {
         ExciterProcessor p; start (p, 48000, 256); Panel g (p);
+        const float want = juce::jmin (1.5f, g.ed->largestScale());
         g.ed->setZoom (1.5f); const int w = g.ed->getWidth();
         g.ed->setSize (600, 900);
-        check (w == 773 && std::abs (p.uiScale - 600.0f / 448.0f / 1.15f) < 0.01f, "the size from the menu (150 % = " + juce::String (w) + " wide) and a pull on the corner (600 wide = " + juce::String (p.uiScale * 100, 0) + " %) are both kept");
+        check (std::abs (w - 448 * 1.15f * want) < 1.5f && std::abs (p.uiScale - 600.0f / 448.0f / 1.15f) < 0.01f, "the size from the menu (150 %, or the largest that fits this screen = " + juce::String (w) + " wide) and a pull on the corner (600 wide = " + juce::String (p.uiScale * 100, 0) + " %) are both kept");
     }
 
     std::cout << "\n== ordinary use: sessions and preset files ==\n";

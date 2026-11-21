@@ -156,7 +156,8 @@ ExciterEditor::ExciterEditor (ExciterProcessor& p) : juce::AudioProcessorEditor 
         juce::PopupMenu m;
         m.addSectionHeader ("Panel size");
         static const int pct[] = { 75, 100, 125, 150, 200 };
-        for (int v : pct) m.addItem (v, juce::String (v) + "%", true, std::abs (proc.uiScale * 100.0f - (float) v) < 1.0f);
+        const float most = largestScale();      // sizes that would not fit on this screen are greyed out
+        for (int v : pct) m.addItem (v, juce::String (v) + "%", (float) v / 100.0f <= most + 0.001f, std::abs (proc.uiScale * 100.0f - (float) v) < 1.0f);
         juce::Component::SafePointer<ExciterEditor> self (this);
         m.showMenuAsync (juce::PopupMenu::Options().withTargetComponent (&settings),
                          [self] (int v) { if (self != nullptr && v > 0) self->setZoom ((float) v / 100.0f); });
@@ -381,9 +382,19 @@ void ExciterEditor::paint (juce::Graphics& g)
             OSBOX.getCentreX(), OSBOX.getCentreY(), 7.0f, WHITE);
 }
 
+// A window taller than the screen is cut short by the host; the panel then shrinks to keep its proportions and
+// leaves an empty strip beside it. So no size is offered that does not fit: the screen's height less the host's
+// title and the bar it puts above the panel (about 60 pixels).
+float ExciterEditor::largestScale() const
+{
+    const auto* d = juce::Desktop::getInstance().getDisplays().getDisplayForRect (getScreenBounds());
+    if (d == nullptr) return 2.0f;
+    return juce::jlimit (0.6f, 2.0f, (float) (d->userArea.getHeight() - 60) / ((float) UH * Z100));
+}
+
 void ExciterEditor::setZoom (float scale)
 {
-    proc.uiScale = std::isfinite (scale) ? juce::jlimit (0.6f, 2.0f, scale) : 1.0f;
+    proc.uiScale = std::isfinite (scale) ? juce::jlimit (0.6f, largestScale(), scale) : 1.0f;
     Z = Z100 * proc.uiScale;
     setSize ((int) std::lround (UW * Z), (int) std::lround (UH * Z));
     resized();

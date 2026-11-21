@@ -4,7 +4,7 @@
 
 ## Install
 
-1. Download `ToboExciter_0.1.0_win64.zip` from the [latest release](https://github.com/tobokegao/ToboExciter/releases/latest) and unzip it.
+1. Download `ToboExciter_0.1.1_win64.zip` from the [latest release](https://github.com/tobokegao/ToboExciter/releases/latest) and unzip it.
 2. Copy the folder `Tobo Exciter.vst3` (the whole folder, not just the file inside it) to `C:\Program Files\Common Files\VST3\`.
 3. Start your DAW and let it scan for new plug-ins. In REAPER: `Options` > `Preferences` > `Plug-ins` > `VST` > `Re-scan`.
 4. The plug-in appears as **Tobo Exciter** (Tobokegao).

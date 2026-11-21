@@ -43,6 +43,7 @@ public:
     void resized() override;
     void showAbout() { about.setVisible (true); about.toFront (false); }
     void setZoom (float scale);
+    float largestScale() const;         // the largest size of the panel that still fits on the screen it is on
     // for tests: a mouse at (x, y) in pixels. phase 0 = press, 1 = drag, 2 = let go, 3 = double click, 4 = wheel
     void poke (float x, float y, int phase, float wheel = 0.0f);
     bool dialogs = true;        // false in tests: SIZE, LOAD and SAVE then open nothing, only count

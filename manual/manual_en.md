@@ -59,7 +59,7 @@ To hear a sound that stays on one pitch, try the presets **One Note** and **Thin
 | **Meters** | Left: the level into the model, after INPUT. Right: the level out of the plug-in. The bottom of each meter is -60 dB. The part above 0 dBFS is red. |
 | **Preset box** | Shows the name of the preset. The arrows switch to the previous or next built-in preset. |
 | **OVERSAMPLING** | Clicking cycles through 2x, 4x and 8x. |
-| **SIZE** | Opens a menu with the sizes of the panel (75%, 100%, 125%, 150% and 200%). |
+| **SIZE** | Opens a menu with the sizes of the panel (75%, 100%, 125%, 150% and 200%). Sizes that do not fit on your screen are greyed out. |
 | **LOAD** | Loads a preset from a file. |
 | **SAVE** | Saves the settings as a preset file. |
 | **INFO** | Shows a short description of the plug-in and its controls. A click anywhere closes it. |
@@ -171,6 +171,10 @@ This plug-in is an independent work. It is not affiliated with, endorsed by, or 
 
 ## Version history
 
-### 0.1.0 ({DATE})
+### 0.1.1 ({DATE})
+
+- The SIZE menu no longer offers sizes that do not fit on the screen. In 0.1.0, choosing such a size made the DAW cut the window short, which left an empty strip beside the panel.
+
+### 0.1.0 (2026-11-21)
 
 - First release.
