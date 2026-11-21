@@ -30,7 +30,7 @@ Tobo Exciter（TE-02）は、Windows用の無料のVST3エフェクトです。1
 
 ## インストール
 
-1. [最新のリリース](https://github.com/tobokegao/ToboExciter/releases/latest)から`ToboExciter_0.1.1_win64.zip`をダウンロードして展開します。
+1. [最新のリリース](https://github.com/tobokegao/ToboExciter/releases/latest)から`ToboExciter_0.1.2_win64.zip`をダウンロードして展開します。
 2. `Tobo Exciter.vst3`フォルダーを、中のファイルだけでなくフォルダーごと`C:\Program Files\Common Files\VST3\`にコピーします。
 3. DAWを起動して、プラグインを再スキャンします。REAPERでは`Options` > `Preferences` > `Plug-ins` > `VST` > `Re-scan`です。
 4. プラグインは**Tobo Exciter**（Tobokegao）という名前で表示されます。
@@ -180,6 +180,11 @@ JUCEフレームワーク（AGPLv3）とVST 3 SDK（MIT License）を使って�
 このプラグインは独立した作品です。どのハードウェアメーカーとも提携しておらず、公認・協賛も受けていません。製品名はそれぞれの権利者のものです。
 
 ## 更新履歴
+
+### 0.1.2（2026-11-21）
+
+- 画面のペダルの本体に出ていた、うすい直線状のむらをなくしました。原因は、画面の画像のもとになる3Dモデルでした。
+- 点灯したランプの画像の位置を直しました。下の画像からわずかにずれていて、ランプのそばでネームプレートの上の縁がずれて見えていました。
 
 ### 0.1.1（2026-11-21）
 

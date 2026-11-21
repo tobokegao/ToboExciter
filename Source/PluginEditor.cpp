@@ -31,7 +31,11 @@ const juce::Rectangle<float> PRESET (122.0f, 50.0f, 204.0f, 24.0f), OSBOX (284.0
 const float BX[4] = { 122.0f, 174.0f, 226.0f, 278.0f };       // their left edges: four boxes across the preset box's width       // each with its name to the right; the four fill the preset box's width
 const float BW = 48.0f, BH = 16.0f, BCORNER = 8.0f;
 const float BY = 27.0f;
-const juce::Rectangle<float> LAMPBOX (PX + 150.0f - 34.0f, PY + 267.0f - 34.0f, 68.0f, 68.0f);
+// The lit lamp's patch was cut from the render on whole pixels: 157 of them from (438, 841), at 1548 / 672 pixels to a
+// unit. Drawn on exactly that place it lies on the picture under it to the pixel; rounded to 68 units from (190, 365)
+// it was a third of a unit off, which showed at the sharp upper edge of the name plate.
+const float PPU = 1548.0f / 672.0f;
+const juce::Rectangle<float> LAMPBOX (438.0f / PPU, 841.0f / PPU, 157.0f / PPU, 157.0f / PPU);
 
 // A line of capitals as a shape, its capitals `capH` high, its middle at (cx, cy). Narrowed to `maxW` if longer.
 juce::Path lettering (const juce::String& s, float cx, float cy, float capH, bool bold, float track = 0.0f, float maxW = 0.0f)
